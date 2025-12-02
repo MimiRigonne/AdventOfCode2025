@@ -22,27 +22,25 @@ with open("day1_data.txt","r") as file :
 
 pos = 50
 out = 0
-i=0
 for d, v in data:
         if d == "L" : 
             pos = pos - v
-            i=i+1
             if pos < 0 : 
                 pos = pos % 100
     
         else : 
             pos = pos + v
-            i=i+1
             if pos > 99 : 
                 pos = pos % 100
                 
         if pos == 0 : 
             out = out + 1
         
-print("The safe code is:",out)
+# print("The safe code is:",out)
     
 #############
 #           #
 #   PART 2  #
 #           #
 #############
+
