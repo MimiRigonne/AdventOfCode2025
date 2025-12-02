@@ -2,33 +2,47 @@
 #####################################
 # Creator : Mimi Rigonne            #
 # Project : AOC_DAY1                #
-# Last Update : December 1st 2025   # 
-# Add : Testing                     #
+# Last Update : December 2nd 2025   # 
+# Add : Part 2                      #
 #####################################
 
+#############
+#           #
+#   PART 1  #
+#           #
+#############
+
+
 #Testing data
-#file = ["L68","L30","R48","L5","R60","L55","L1","L99","R14","L82"]
+#file = ["L68","L30","R48","L5","R60","L55","L1","L99","R14","L82","R868","L215"]
+#data = [(x[0], int(x[1:])) for x in file]
 
 with open("day1_data.txt","r") as file : 
-
     data = [(x[0], int(x[1:])) for x in file.read().splitlines() if x.strip()]
 
-# print(data)
 pos = 50
 out = 0
+i=0
 for d, v in data:
-    if d == "L" : 
-        pos = pos - v
-        while pos < 0 : 
-            pos = pos - 99
-        
-    else : 
-        pos = pos + v
-        while pos > 99 : 
-            pos = pos - 99
+        if d == "L" : 
+            pos = pos - v
+            i=i+1
+            if pos < 0 : 
+                pos = pos % 100
     
-    if pos == 0 : 
-        out = out + 1
+        else : 
+            pos = pos + v
+            i=i+1
+            if pos > 99 : 
+                pos = pos % 100
+                
+        if pos == 0 : 
+            out = out + 1
         
-
-print(out)
+print("The safe code is:",out)
+    
+#############
+#           #
+#   PART 2  #
+#           #
+#############
